@@ -33,6 +33,7 @@
         .navbar.scrolled {
             background: rgba(0, 51, 102, 0.7);
         }
+        
         .navbar-nav .nav-link { color: #fff !important; font-weight: 500; }
         .navbar-brand { font-size: 2rem; font-weight: bold; letter-spacing: 2px; }
         .navbar-brand img.site-logo { width: 80px;  }
