@@ -37,7 +37,7 @@ class Login extends CI_Controller
         {
             $result['images'] = $res = $this->config_model->getImages('gallery');
             $result['packages'] = $res = $this->config_model->getImages('packages');
-            $this->load->view('front-1', $result);
+            $this->load->view('front/front', $result);
         }
         else
         {
@@ -51,7 +51,7 @@ class Login extends CI_Controller
      */
     public function loginMe()
     {
-        
+        // die('asdf');
         $this->load->library('form_validation');
         
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|max_length[128]|trim');
@@ -95,7 +95,7 @@ class Login extends CI_Controller
             {
                 $this->session->set_flashdata('error', 'Email or password mismatch');
                 
-                redirect(base_url().'#section-4');
+                redirect(base_url());
             }
         }
     }

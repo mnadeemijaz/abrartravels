@@ -33,7 +33,7 @@ class Front extends BaseController
 		//echo $this->db->last_query();die(); 
         $result['images'] = $res = $this->config_model->getImages('gallery');
         $result['packages'] = $res = $this->config_model->getImages('packages');
-		$this->load->view('front-1',$result);
+		$this->load->view('front/front',$result);
 	}
   
     function pageNotFound()
