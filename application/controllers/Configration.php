@@ -199,6 +199,11 @@ class Configration extends BaseController
 				$data_to_insert = array(
 					'filename' => $pic_name,
 					'type' => $this->input->post('type'),
+					'price' => $this->input->post('price')?$this->input->post('price'):'',
+					'country' => $this->input->post('country')?$this->input->post('country'):'',
+					'hotel_name' => $this->input->post('hotel_name')?$this->input->post('hotel_name'):'',
+					'hotel_location' => $this->input->post('hotel_location')?$this->input->post('hotel_location'):'',
+					'gallary_name' => $this->input->post('gallary_name')?$this->input->post('gallary_name'):'',
 					'uploaded_at' => date('Y-m-d H:i:s')
 				);
 				$this->db->insert('images', $data_to_insert);

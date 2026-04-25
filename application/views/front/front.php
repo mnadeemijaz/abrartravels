@@ -61,32 +61,6 @@
         <!-- end preloader -->
         <!-- Start header -->
         <header id="header">
-            <div class="topbar">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col col-md-6 col-sm-7 col-12">
-                            <div class="contact-intro">
-                                <ul>
-                                    <li><i class="fi ti-location-pin"></i><?php echo $config->address; ?></li>
-                                    <!-- <li><i class="fi flaticon-email"></i> <?php // echo $config->email; ?></li> -->
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col col-md-6 col-sm-5 col-12">
-                            <div class="contact-info">
-                                <ul>
-                                    <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                    <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                    <li><a href="#"><i class="ti-instagram"></i></a></li>
-                                    <li><a href="#"><i class="ti-google"></i></a></li>
-                                    <li><a href="#">&nbsp;</a></li>
-                                    <!-- <li><a class="theme-btn-s2" href="#">Book A Room </a></li> -->
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end topbar -->
             <div class="site-header header-style-1">
                 <nav class="navigation navbar navbar-default">
                     <div class="container-fluid">
@@ -498,99 +472,29 @@
                     </div>
                 </div>
                 <div class="destination-carousel owl-carousel owl-theme owl-btn-center-lr owl-dots-primary-full owl-btn-3 m-b30 wow fadeIn" data-wow-duration="2s" data-wow-delay="0.2s">
-                    <div class="item">
-                        <div class="destination-item">
-                            <div class="destination-img">
-                                <img src="<?php echo base_url()?>front/assets/images/destination/img-6.jpg" alt="">
-                            </div>
-                            <div class="destination-content">
-                                <div class="content-left">
-                                    <h5>United Arab</h5>
-                                    <small>11 Jun 2020 - 22 Jun 2020</small>
-                                </div>
-                                <div class="content-right">
-                                    <h5>$750</h5>
-                                    <span>Per Day</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="service-media-bx">
-                            <div class="destination-item">
-                            <div class="destination-img">
-                                <img src="<?php echo base_url()?>front/assets/images/destination/img-5.jpg" alt="">
-                            </div>
-                            <div class="destination-content">
-                                <div class="content-left">
-                                    <h5>Paris, France</h5>
-                                    <small>11 Jun 2020 - 22 Jun 2020</small>
-                                </div>
-                                <div class="content-right">
-                                    <h5>$835</h5>
-                                    <span>Per Day</span>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
+                    <?php if(!empty($countries)) { foreach($countries as $country) { ?>
                     <div class="item">
                         <div class="service-media-bx">
                             <div class="destination-item">
                                 <div class="destination-img">
-                                    <img src="<?php echo base_url()?>front/assets/images/destination/img-9.jpg" alt="">
+                                    <img src="<?php echo base_url()?>assets/images/<?php echo $country->filename; ?>" alt="" style="height: 500px;">
                                 </div>
                                 <div class="destination-content">
                                     <div class="content-left">
-                                        <h5>Singapore</h5>
-                                        <small>11 Jun 2020 - 22 Jun 2020</small>
+                                        <h5><?php echo $country->country; ?></h5>
+                                        <!-- <small>11 Jun 2020 - 22 Jun 2020</small> -->
                                     </div>
+                                    <?php if($country->price) { ?>
                                     <div class="content-right">
-                                        <h5>$870</h5>
+                                        <h5><?php echo $country->price; ?></h5>
                                         <span>Per Day</span>
                                     </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="service-media-bx">
-                            <div class="destination-item">
-                                <div class="destination-img">
-                                    <img src="<?php echo base_url()?>front/assets/images/destination/img-7.jpg" alt="">
-                                </div>
-                                <div class="destination-content">
-                                    <div class="content-left">
-                                        <h5>San Francisco</h5>
-                                        <small>11 Jun 2020 - 22 Jun 2020</small>
-                                    </div>
-                                    <div class="content-right">
-                                        <h5>$653</h5>
-                                        <span>Per Day</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="service-media-bx">
-                            <div class="destination-item">
-                                <div class="destination-img">
-                                    <img src="<?php echo base_url()?>front/assets/images/destination/img-8.jpg" alt="">
-                                </div>
-                                <div class="destination-content">
-                                    <div class="content-left">
-                                        <h5>Singapore</h5>
-                                        <small>11 Jun 2020 - 22 Jun 2020</small>
-                                    </div>
-                                    <div class="content-right">
-                                        <h5>$550</h5>
-                                        <span>Per Day</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } } ?>
                 </div>
             </div>  
         </div>
@@ -601,67 +505,37 @@
                 <div class="container">
                     <div class="col-12">
                         <div class="wpo-section-title">
-                            <span>Our Rooms</span>
-                            <h2>Discover Our Rooms</h2>
+                            <span>Our Hotels</span>
+                            <h2>Discover Our Hotels</h2>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col col-xs-12 sortable-gallery">
                             <div class="gallery-filters">
                                 <ul>
-                                    <li><a data-filter=".Classic" href="#" class="current">Classic</a></li>
-                                    <li><a data-filter=".Budget" href="#">Budget</a></li>
-                                    <li><a data-filter=".Luxury" href="#">Luxury</a></li>
-                                    <li><a data-filter=".Double" href="#">Double</a></li>
-                                    <li><a data-filter=".Single" href="#">Single</a></li>
+                                    <li><a data-filter=".all" href="#" class="current">All</a></li>
+                                    <li><a data-filter=".makkah" href="#">Makkah</a></li>
+                                    <li><a data-filter=".madina" href="#">Madina</a></li>
                                 </ul>
                             </div>
                             <div class="gallery-container gallery-fancybox masonry-gallery">
-                                <div class="grid  Luxury Double Single Classic">
+                                <?php foreach($hotels as $hotel) { ?>
+                                <div class="grid all <?php echo strtolower($hotel->hotel_location); ?>">
                                     <div class="room-item">
-                                        <img src="<?php echo base_url()?>front/assets/images/room/img-1.jpg" alt class="img img-responsive">
+                                        <img src="<?php echo base_url()?>assets/images/<?php echo $hotel->filename; ?>" alt class="img img-responsive" style="height: 300px;">
                                         <div class="room-text-show">
+                                            <h2><?php echo $hotel->hotel_name; ?></h2>
+                                        </div>
+                                        <!-- <div class="room-text-hide">
                                             <h2>Lake view Room</h2>
-                                        </div>
-                                        <div class="room-text-hide">
-                                            <h2>Lake view Room</h2>
                                             <span>Twin Room</span>
                                             <p>If you are going to use a passage Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
                                             <small>From: <span>$142</span> / Night</small>
                                             <a class="theme-btn-s2" href="#">Check Availability</a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
-                                <div class="grid Classic Luxury Single">
-                                    <div class="room-item">
-                                        <img src="<?php echo base_url()?>front/assets/images/room/img-2.jpg" alt class="img img-responsive">
-                                        <div class="room-text-show">
-                                            <h2>Queen Room Balcony</h2>
-                                        </div>
-                                        <div class="room-text-hide">
-                                            <h2>Queen Room Balcony</h2>
-                                            <span>Twin Room</span>
-                                            <p>If you are going to use a passage Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-                                            <small>From: <span>$142</span> / Night</small>
-                                            <a class="theme-btn-s2" href="#">Check Availability</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="grid Budget Double Classic">
-                                    <div class="room-item">
-                                        <img src="<?php echo base_url()?>front/assets/images/room/img-3.jpg" alt class="img img-responsive">
-                                        <div class="room-text-show">
-                                            <h2>Apartment</h2>
-                                        </div>
-                                        <div class="room-text-hide">
-                                            <h2>Apartment</h2>
-                                            <span>Twin Room</span>
-                                            <p>If you are going to use a passage Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-                                            <small>From: <span>$142</span> / Night</small>
-                                            <a class="theme-btn-s2" href="#">Check Availability</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php }?>
                             </div>
                         </div>
                     </div> <!-- end row -->
@@ -673,66 +547,18 @@
         <div class="featured-area featured-sub">
             <div class="container-fluid">
                 <div class="row grid ">
+                    <?php foreach($images as $image) { ?>
                     <div class="col-lg-4 items col-md-6 col-sm-6 col-12">
                         <div class="featured-wrap">
                             <div class="featured-img">
-                                <img src="<?php echo base_url()?>front/assets/images/featured/1.jpg" alt="">
+                                <img src="<?php echo base_url()?>assets/images/<?php echo $image->filename; ?>" alt="" class="img img-responsive" style="height: 300px;">
                                 <div class="featured-content">
-                                    <a href="room-single.html">Delicious Food</a>
+                                    <a href="#"><?php echo $image->gallary_name; ?></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 items col-md-6 col-sm-6 col-12">
-                        <div class="featured-wrap">
-                            <div class="featured-img">
-                                <img src="<?php echo base_url()?>front/assets/images/featured/2.jpg" alt="">
-                                <div class="featured-content">
-                                    <a href="room-single.html">Swimming Pool</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 items col-md-6 col-sm-6 col-12">
-                        <div class="featured-wrap">
-                            <div class="featured-img">
-                                <img src="<?php echo base_url()?>front/assets/images/featured/3.jpg" alt="">
-                                <div class="featured-content">
-                                    <a href="room-single.html">Spa salon</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 items col-md-6 col-sm-6 col-12">
-                        <div class="featured-wrap">
-                            <div class="featured-img">
-                                <img src="<?php echo base_url()?>front/assets/images/featured/4.jpg" alt="">
-                                <div class="featured-content">
-                                    <a href="room-single.html">Game Room</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 items col-md-6 col-sm-6 col-12">
-                        <div class="featured-wrap">
-                            <div class="featured-img">
-                                <img src="<?php echo base_url()?>front/assets/images/featured/5.jpg" alt="">
-                                <div class="featured-content">
-                                    <a href="room-single.html">Airport Taxi</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 items col-md-6 col-sm-6 col-12">
-                        <div class="featured-wrap">
-                            <div class="featured-img">
-                                <img src="<?php echo base_url()?>front/assets/images/featured/6.jpg" alt="">
-                                <div class="featured-content">
-                                    <a href="room-single.html">Breakfast</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php }?>
                 </div>
             </div>
         </div>
@@ -742,81 +568,24 @@
             <div class="container">
                 <div class="col-12">
                     <div class="wpo-section-title">
-                        <span>What Say Clients</span>
-                        <h2>Our Clients are <br> Important to Us</h2>
+                        <span>Air Lines</span>
+                        <h2>Our AIR Lines</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="testimonial-slider clearfix">
                             <div class="grid">
-                                <div class="ratting">
-                                    <ul>
-                                        <li><i class="fi flaticon-star"></i></li>
-                                        <li><i class="fi flaticon-star"></i></li>
-                                        <li><i class="fi flaticon-star"></i></li>
-                                        <li><i class="fi flaticon-star"></i></li>
-                                        <li><i class="fi flaticon-star"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="quote">
-                                    <p>“The trip was incredible. I got to see so many places I wouldn't have by myself, me and my husband really enjoyed a lot.”</p>
-                                </div>
-                                <div class="client-info">
-                                    <div class="client-img">
-                                        <img src="<?php echo base_url()?>front/assets/images/testimonial/img-1.jpg" alt="">
-                                    </div>
-                                    <div class="client-text">
-                                        <h5>Benjir Walton</h5>
-                                        <p>Singapore</p>
-                                    </div>
-                                </div>
+                                <img src="<?php echo base_url()?>front/assets/images/psa.png" alt="Testimonial 1" class="img img-responsive" style="width:100%;height:auto;object-fit:cover;">
+                                <p style="font-weight:bold; text-align:center; margin-top:10px; font-size:1.1em;">PSA</p>
                             </div>
                             <div class="grid">
-                                <div class="ratting">
-                                    <ul>
-                                        <li><i class="fi flaticon-star"></i></li>
-                                        <li><i class="fi flaticon-star"></i></li>
-                                        <li><i class="fi flaticon-star"></i></li>
-                                        <li><i class="fi flaticon-star"></i></li>
-                                        <li><i class="fi flaticon-star"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="quote">
-                                    <p>“The trip was incredible. I got to see so many places I wouldn't have by myself, me and my husband really enjoyed a lot.”</p>
-                                </div>
-                                <div class="client-info">
-                                    <div class="client-img">
-                                        <img src="<?php echo base_url()?>front/assets/images/testimonial/img-2.jpg" alt="">
-                                    </div>
-                                    <div class="client-text">
-                                        <h5>Jenefar Meera</h5>
-                                        <p>Canada</p>
-                                    </div>
-                                </div>
+                                <img src="<?php echo base_url()?>front/assets/images/iata.png" alt="Testimonial 2" class="img img-responsive" style="width:100%;height:auto;object-fit:cover;">
+                                <p style="font-weight:bold; text-align:center; margin-top:10px; font-size:1.1em;">IATA</p>
                             </div>
                             <div class="grid">
-                                <div class="ratting">
-                                    <ul>
-                                        <li><i class="fi flaticon-star"></i></li>
-                                        <li><i class="fi flaticon-star"></i></li>
-                                        <li><i class="fi flaticon-star"></i></li>
-                                        <li><i class="fi flaticon-star"></i></li>
-                                        <li><i class="fi flaticon-star"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="quote">
-                                    <p>“The trip was incredible. I got to see so many places I wouldn't have by myself, me and my husband really enjoyed a lot.”</p>
-                                </div>
-                                <div class="client-info">
-                                    <div class="client-img">
-                                        <img src="<?php echo base_url()?>front/assets/images/testimonial/img-3.jpg" alt="">
-                                    </div>
-                                    <div class="client-text">
-                                        <h5>Lily monalisa</h5>
-                                        <p>Singapore</p>
-                                    </div>
-                                </div>
+                                <img src="<?php echo base_url()?>front/assets/images/testimonial/img-3.jpg" alt="Testimonial 3" class="img img-responsive" style="width:100%;height:auto;object-fit:cover;">
+                                <p style="font-weight:bold; text-align:center; margin-top:10px; font-size:1.1em;">DSP</p>
                             </div>
                         </div>
                     </div>

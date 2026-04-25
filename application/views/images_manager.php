@@ -34,24 +34,67 @@
 
         <h2>Images Manager</h2>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <h3>Gallery Images</h3>
                 <form action="<?php echo isset($edit) && $edit ? base_url('Configration/edit_image/'.$image->id) : base_url('Configration/store_images'); ?>" method="post" enctype="multipart/form-data" class="mb-4">
                     <div class="form-group">
                         <label for="image">Select Image to Upload</label>
                         <input type="file" name="image" id="image" class="form-control-file" <?php echo (isset($edit) && $edit) ? '' : 'required'; ?>>
                         <input type="hidden" name="type" value="gallery">
+                        <input type="text" name="gallary_name" value="">
                     </div>
                     <button type="submit" class="btn btn-primary"><?php echo (isset($edit) && $edit) ? 'Update Image' : 'Upload Image'; ?></button>
                 </form>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <h3>Packages Images</h3>
                 <form action="<?php echo isset($edit) && $edit ? base_url('Configration/edit_image/'.$image->id) : base_url('Configration/store_images'); ?>" method="post" enctype="multipart/form-data" class="mb-4">
                     <div class="form-group">
                         <label for="image">Select Image to Upload</label>
                         <input type="file" name="image" id="image" class="form-control-file" <?php echo (isset($edit) && $edit) ? '' : 'required'; ?>>
                         <input type="hidden" name="type" value="packages">
+                    </div>
+                    <button type="submit" class="btn btn-primary"><?php echo (isset($edit) && $edit) ? 'Update Image' : 'Upload Image'; ?></button>
+                </form>
+            </div>
+            <div class="col-md-3">
+                <h3>Country Images</h3>
+                <form action="<?php echo isset($edit) && $edit ? base_url('Configration/edit_image/'.$image->id) : base_url('Configration/store_images'); ?>" method="post" enctype="multipart/form-data" class="mb-4">
+                    <div class="form-group">
+                        <label for="image">Select Image to Upload</label>
+                        <input type="file" name="image" id="image" class="form-control-file" <?php echo (isset($edit) && $edit) ? '' : 'required'; ?>>
+                        <input type="hidden" name="type" value="country">
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input type="text" name="country" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" name="price" value="">
+                    </div>
+                    <button type="submit" class="btn btn-primary"><?php echo (isset($edit) && $edit) ? 'Update Image' : 'Upload Image'; ?></button>
+                </form>
+            </div>
+            <div class="col-md-3">
+                <h3>Hotel Images</h3>
+                <form action="<?php echo isset($edit) && $edit ? base_url('Configration/edit_image/'.$image->id) : base_url('Configration/store_images'); ?>" method="post" enctype="multipart/form-data" class="mb-4">
+                    <div class="form-group">
+                        <label for="image">Select Image to Upload</label>
+                        <input type="file" name="image" id="image" class="form-control-file" <?php echo (isset($edit) && $edit) ? '' : 'required'; ?>>
+                        <input type="hidden" name="type" value="hotel">
+                    </div>
+                    <div class="form-group">
+                        <label for="hotel_name">Hotel Name</label>
+                        <input type="text" name="hotel_name" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="hotel_location">Hotel Location</label>
+                        <select name="hotel_location" class="form-control">
+                            <option value="">Select Location</option>
+                            <option value="makkah">Makkah</option>
+                            <option value="madina">Madina</option>
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary"><?php echo (isset($edit) && $edit) ? 'Update Image' : 'Upload Image'; ?></button>
                 </form>

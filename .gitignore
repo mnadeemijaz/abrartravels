@@ -2,3 +2,5 @@
 /application/config/constants.php
 /application/config/*
 /application/cache/sessions/*
+/assets/*
+/application/logs/*
